@@ -2,7 +2,9 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
-    path('pages/', views.index, name='index'),
+    # path('', views.index, name='index'),
+    path('', views.index, {'pagename': ''}, name='home'),
+    path('<str:pagename>', views.index, name='index'),
+
 ]
