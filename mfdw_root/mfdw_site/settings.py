@@ -24,9 +24,9 @@ STATIC_DIR = os.path.join(BASE_DIR, "mfdw_site/static")
 SECRET_KEY = 'o_3+mp8t+!sy*%#_$=n!)n)6wjuiju)_#rkgt%$!t@ln3z)oo4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
