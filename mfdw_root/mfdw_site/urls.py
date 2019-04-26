@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from quotes import urls
+from django.views.generic.base import TemplateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('quote/', include('quotes.urls')),
+    path('testpage/', TemplateView.as_view(template_name='pages/page.html')),
     path('', include('pages.urls')),
 ]
