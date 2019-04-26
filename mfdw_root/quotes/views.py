@@ -3,15 +3,25 @@ from django.http import HttpResponseRedirect
 from .models import Quote
 from .forms import QuoteForm
 from pages.models import Page
-from django.views.generic.list import ListView
+from django.views.generic import ListView, DetailView
 
 class QuoteList(ListView):
     model = Quote
     context_object_name = 'all_quotes'
-    template_name = 'quotes/quote_listt.html'
+    template_name = 'quotes/quote_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(QuoteList, self).get_context_data(**kwargs)
+        context['page_list'] = Page.objects.all()
+        return context
+
+
+class QuoteView(DetailView):
+    model = Quote
+    context_object_name = 'quote'
+
+    def get_context_data(self, **kwargs):
+        context = super(QuoteView, self).get_context_data(**kwargs)
         context['page_list'] = Page.objects.all()
         return context
 
